@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Arduino</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="sidebar">
+        <a href="#inicio" onclick="showSection('inicio')"><img src="/images/Imagem01.png" alt="LOGO" height="150px"></a>
+        <ul>
+            <li><a href="#inicio" onclick="showSection('inicio')" >Inicio</a></li>
+            <li><a href="#projeto" onclick="showSection('projeto')" >Projeto</a></li>
+            <li><a href="#sobre" onclick="showSection('sobre')" >Sobre</a></li>
+            <li><a href="#contato" onclick="showSection('contato')" >Contato</a></li>
+        </ul>
+    </div>
+    <section id="inicio" class="section active fade fade-in">
+        <div class="conteudo_inicio">
+            <div class="conteudo">
+                <h1>Dosador de lava-louças</h1>
+                <p>Nosso projeto busca inovar na forma de realizar a manutenção de máquinas de lavar-louças. Atualmente, esse processo é feito manualmente, exigindo intervenção direta no equipamento. Com o nosso dosador automatizado, será possível realizar a manutenção de maneira remota, oferecendo mais praticidade, eficiência e controle. Essa solução permitirá monitoramento em tempo real e ajustes precisos, melhorando o desempenho do equipamento e reduzindo a necessidade de assistência técnica física.</p>
+            </div>
+            <div class="imagem_inicio">
+                <img src="images/Minimalist_Notebook_Line_Drawing.png" alt="Imagem inicio" height="350px">
+            </div>
+        </div>
+    </section>
+    <section id="projeto" class="section fade">
+        <div class="conteudo_projeto">
+            <div class="conteudo_horizontal">
+                <p id="desc" class="conteudo">Componentes e suprimentos necessarios:<br><br>1x FONTE DE ALIMENTAÇÃO 220V PARA 24V<br>1x ARDUINO UNO<br>2x MOTOR 24V<br>2x POTÊNCIOMETRO DIGITAL<br>1x MODULO DE COMUNICAÇÃO<br>2x LEDs VERMELHAS<br>2x RELÉ DE ESTADO SOLIDO<br>2x RESISTORES</p>
+                <img id="imagem" src="images/componentesESuprimentos.png" alt="Imagem" height="400">
+            </div>
+            <button class="botao" onclick="mudarImagem()">Avançar</button>
+        </div>
+    </section>
+    <section id="sobre" class="section fade">
+        <div class="conteudo_sobre">
+            <p>
+                Nosso time desenvolveu um projeto em Arduino com o objetivo de inovar na forma de realizar a manutenção de máquinas de lavar-louças. Este projeto está disponível em nosso repositório no <a href="">GitHub</a>, onde você pode explorar o código completo, os esquemas de montagem e a documentação detalhada.
+                Para quem deseja aprender e replicar o projeto, criamos também um vídeo tutorial no <a href="">YouTube</a>. Nele, explicamos cada etapa da montagem e programação, tornando o processo acessível tanto para iniciantes quanto para entusiastas de Arduino com mais experiência.
+                Além disso, disponibilizamos o <a href="">download</a> do projeto com todos os arquivos necessários para a execução. Sinta-se à vontade para explorar, modificar e contribuir com melhorias em nossa comunidade!          
+            </p>
+        </div>
+    </section>
+    <section id="contato" class="section fade">
+        <div class="conteudo_contato">
+            <div class="grid">
+                <div class="perfil">
+                    <div class="conteudo_vertical">
+                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <div class="conteudo_horizontal_sobre">
+                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
+                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="perfil">
+                    <div class="conteudo_vertical">
+                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <div class="conteudo_horizontal_sobre">
+                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
+                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="perfil">
+                    <div class="conteudo_vertical">
+                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <div class="conteudo_horizontal_sobre">
+                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
+                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="perfil">
+                    <div class="conteudo_vertical">
+                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <div class="conteudo_horizontal_sobre">
+                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
+                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="perfil">
+                    <div class="conteudo_vertical">
+                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <div class="conteudo_horizontal_sobre">
+                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
+                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="perfil">
+                    <div class="conteudo_vertical">
+                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <div class="conteudo_horizontal_sobre">
+                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
+                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
