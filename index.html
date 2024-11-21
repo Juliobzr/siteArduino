@@ -5,38 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Arduino</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="sidebar">
-        <a href="#inicio" onclick="showSection('inicio')"><img src="/images/Imagem01.png" alt="LOGO" height="150px"></a>
+        <a href="#inicio" onclick="showSection('inicio')"><img src="./images/Imagem01.png" alt="LOGO" height="150px"></a>
         <ul>
             <li><a href="#inicio" onclick="showSection('inicio')" >Inicio</a></li>
             <li><a href="#projeto" onclick="showSection('projeto')" >Projeto</a></li>
-            <li><a href="#sobre" onclick="showSection('sobre')" >Sobre</a></li>
-            <li><a href="#contato" onclick="showSection('contato')" >Contato</a></li>
+            <li><a href="#sobre" onclick="showSection('sobre')" >Faça você mesmo</a></li>
+            <li><a href="#contato" onclick="showSection('contato')" >Nosso time</a></li>
         </ul>
     </div>
     <section id="inicio" class="section active fade fade-in">
         <div class="conteudo_inicio">
             <div class="conteudo">
                 <h1>Dosador de lava-louças</h1>
-                <p>Nosso projeto busca inovar na forma de realizar a manutenção de máquinas de lavar-louças. Atualmente, esse processo é feito manualmente, exigindo intervenção direta no equipamento. Com o nosso dosador automatizado, será possível realizar a manutenção de maneira remota, oferecendo mais praticidade, eficiência e controle. Essa solução permitirá monitoramento em tempo real e ajustes precisos, melhorando o desempenho do equipamento e reduzindo a necessidade de assistência técnica física.</p>
+                <p>Nosso projeto revoluciona a manutenção de máquinas de lavar-louças, permitindo que seja feita remotamente com um dosador automatizado. A solução oferece monitoramento em tempo real, ajustes precisos e maior eficiência, reduzindo a necessidade de assistência técnica física.</p>
             </div>
             <div class="imagem_inicio">
-                <img src="images/imagem_inicio.png" alt="Imagem inicio" height="350px">
+                <img src="./images/imagem_inicio.png" alt="Imagem inicio" height="350px">
             </div>
         </div>
     </section>
     <section id="projeto" class="section fade">
         <div class="conteudo_projeto">
             <div class="conteudo_horizontal">
-                <p id="desc" class="conteudo">Componentes e suprimentos necessarios:<br><br>1x FONTE DE ALIMENTAÇÃO 220V PARA 24V<br>1x ARDUINO UNO<br>2x MOTOR 24V<br>2x POTÊNCIOMETRO DIGITAL<br>1x MODULO DE COMUNICAÇÃO<br>2x LEDs VERMELHAS<br>2x RELÉ DE ESTADO SOLIDO<br>2x RESISTORES</p>
-                <img id="imagem" src="images/componentesESuprimentos.png" alt="Imagem" height="400">
+                <div id="desc" class="conteudo mostrar">
+                    <h1>Componentes e<br>suprimentos</h1><br><br>1x Fonde de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro digital<br>1x Modulo de comunacação<br>2x LEDs vermelhas<br>2x Relé de estado solido<br>2x Resistores
+                </div>
+                <img id="imagem" class="mostrar" src="./images/componentesESuprimentos.png" alt="Imagem" height="400">
             </div>
             <button class="botao" onclick="mudarImagem()">Avançar</button>
         </div>
@@ -44,10 +44,70 @@
     <section id="sobre" class="section fade">
         <div class="conteudo_sobre">
             <p>
-                Nosso time desenvolveu um projeto em Arduino com o objetivo de inovar na forma de realizar a manutenção de máquinas de lavar-louças. Este projeto está disponível em nosso repositório no <a href="">GitHub</a>, onde você pode explorar o código completo, os esquemas de montagem e a documentação detalhada.
-                Para quem deseja aprender e replicar o projeto, criamos também um vídeo tutorial no <a href="">YouTube</a>. Nele, explicamos cada etapa da montagem e programação, tornando o processo acessível tanto para iniciantes quanto para entusiastas de Arduino com mais experiência.
-                Além disso, disponibilizamos o <a href="">download</a> do projeto com todos os arquivos necessários para a execução. Sinta-se à vontade para explorar, modificar e contribuir com melhorias em nossa comunidade!          
+                Este projeto está disponível em nosso repositório no GitHub, onde você pode explorar o código completo, os esquemas de montagem e a documentação detalhada.
+                Para quem deseja aprender e replicar o projeto, criamos também um vídeo tutorial no youtube.
+                Além disso, disponibilizamos o download do projeto com todos os arquivos necessários para a execução. Sinta-se à vontade para explorar, modificar e contribuir com melhorias em nossa comunidade!          
             </p>
+            <div class="conteudo_horizontal">
+                <div class="conteudo_vertical">
+                    <a href="">Download do projeto</a>
+                    <a target="_blank" href="https://github.com/victorsimasdev/project-arduino">Repositório no GitHub</a>
+                </div>
+                <div class="video margem">
+                    <iframe width="407" height="271" src="https://www.youtube.com/embed/oE56g61mW44?list=RDoE56g61mW44" title="Isn&#39;t She Lovely" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="code-container">
+                    <pre>
+                        <code>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+const int potPin = A0;    
+const int potPin2 = A1;    
+const int motorPin = 9;
+const int motorPin2 = 10;
+
+LiquidCrystal_I2C lcd(32, 16, 2);
+
+void setup() {
+    pinMode(motorPin, OUTPUT);
+    pinMode(motorPin2, OUTPUT);
+    Serial.begin(9600);        
+    
+    lcd.init();
+    lcd.setCursor(0, 0);
+    lcd.backlight();
+    lcd.display();
+    
+    lcd.print("Inicializando...");
+    delay(2000);
+    lcd.clear();
+}
+
+void loop() {
+    int potValue = analogRead(potPin);  
+    int motorSpeed = map(potValue, 0, 1023, 0, 255); 
+    analogWrite(motorPin, motorSpeed);
+    
+    lcd.setCursor(0, 0);
+    lcd.print("Vel. M1: ");
+    lcd.print(motorSpeed);
+    
+    
+    int potValue2 = analogRead(potPin2);  
+    int motorSpeed2 = map(potValue2, 0, 1023, 0, 255); 
+    analogWrite(motorPin2, motorSpeed2);
+    
+    lcd.setCursor(0, 1);
+    lcd.print("Vel. M2: ");
+    lcd.print(motorSpeed2);
+
+    delay(1000);
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
         </div>
     </section>
     <section id="contato" class="section fade">
@@ -55,55 +115,61 @@
             <div class="grid">
                 <div class="perfil">
                     <div class="conteudo_vertical">
-                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <img class="foto_perfil" src="./images/fotoJulioBezerra.jpg" alt="">
+                        <span>Julio Bezerra</span>
                         <div class="conteudo_horizontal_sobre">
-                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
-                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/julio-bezerra-8736941a2/"><img src="./images/logoLinkedin.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://github.com/Juliobzr"><img src="./images/logoGitHub.png" alt="" height="50"></a>
                         </div>
                     </div>
                 </div>
                 <div class="perfil">
                     <div class="conteudo_vertical">
-                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <img class="foto_perfil" src="./images/fotoMarina.jpg" alt="">
+                        <span>Marina Lira</span>
                         <div class="conteudo_horizontal_sobre">
-                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
-                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://www.linkedin.com"><img src="./images/logoLinkedin.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://github.com/mlrl2"><img src="./images/logoGitHub.png" alt="" height="50"></a>
                         </div>
                     </div>
                 </div>
                 <div class="perfil">
                     <div class="conteudo_vertical">
-                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <img class="foto_perfil" src="./images/fotoVictor.jpg" alt="">
+                        <span>Victor Simas</span>
                         <div class="conteudo_horizontal_sobre">
-                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
-                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/victor-simas-6448a3232/"><img src="./images/logoLinkedin.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://github.com/victorsimasdev"><img src="./images/logoGitHub.png" alt="" height="50"></a>
                         </div>
                     </div>
                 </div>
                 <div class="perfil">
                     <div class="conteudo_vertical">
-                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <img class="foto_perfil" src="./images/fotoAllan.jpg" alt="">
+                        <span>Allan Vasconcelos</span>
                         <div class="conteudo_horizontal_sobre">
-                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
-                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                            <a target="_blank" href="http://www.linkedin.com/in/allan-ronald-628b597a"><img src="./images/logoLinkedin.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://github.com/AllanVasconceL0s"><img src="./images/logoGitHub.png" alt="" height="50"></a>
                         </div>
                     </div>
                 </div>
                 <div class="perfil">
                     <div class="conteudo_vertical">
-                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <img class="foto_perfil" src="./images/fotoThyalles.jpg" alt="">
+                        <span>Thyalles Campos</span>
                         <div class="conteudo_horizontal_sobre">
-                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
-                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/thyalles-campos-aa03b419a/"><img src="./images/logoLinkedin.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://github.com/Thyalles"><img src="./images/logoGitHub.png" alt="" height="50"></a>
                         </div>
                     </div>
                 </div>
                 <div class="perfil">
                     <div class="conteudo_vertical">
-                        <img src="images/fotoPerfil.jpg" alt="" height="200">
+                        <img class="foto_perfil" src="./images/fotoMatheus.jpg" alt="">
+                        <span>Mateus Oliveira</span>
                         <div class="conteudo_horizontal_sobre">
-                            <a href=""><img src="images/logoLinkedin.png" alt="" height="50"></a>
-                            <a href=""><img src="images/logoGitHub.png" alt="" height="50"></a>
+                            <a target="_blank" href="http://www.linkedin.com/in/mateusfpoliveira"><img src="./images/logoLinkedin.png" alt="" height="50"></a>
+                            <a target="_blank" href="https://github.com/MateusFpOlv2"><img src="./images/logoGitHub.png" alt="" height="50"></a>
                         </div>
                     </div>
                 </div>

@@ -15,82 +15,30 @@ function showSection(sectionId) {
 
 let indiceAtual = 0;
 const descs = [
-    'Componentes e suprimentos necessarios:<br><br>1x FONTE DE ALIMENTAÇÃO 220V PARA 24V<br>1x ARDUINO UNO<br>2x MOTOR 24V<br>2x POTÊNCIOMETRO DIGITAL<br>1x MODULO DE COMUNICAÇÃO<br>2x LEDs VERMELHAS<br>2x RELÉ DE ESTADO SOLIDO<br>2x RESISTORES</p>',
-
-    'Esquema conceitual do projeto:<br>A base do projeto está em um conjunto de sensores e atuadores conectados ao microcontrolador Arduino. Esses componentes monitoram variáveis importantes da máquina, como: comunicação e controle remoto, interface de usuário e alertas e notificações ',
-
-    'Problemas e liçoes aprendidas: ']
+    '<h1>Componentes e<br>suprimentos</h1><br><br>1x Fonde de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro digital<br>1x Modulo de comunacação<br>2x LEDs vermelhas<br>2x Relé de estado solido<br>2x Resistores',
+    '<h1>Esquema<br>conceitual</h1><br>&nbsp;&nbsp;&nbsp;&nbsp;A base do projeto está em um conjunto de sensores e atuadores conectados ao microcontrolador Arduino. Esses componentes monitoram variáveis importantes da máquina, como: comunicação e controle remoto, interface de usuário e alertas e notificações.',
+    '<h1>Ferramentas<br>utilizadas</h1><br>&nbsp;&nbsp;&nbsp;&nbsp;Utilizamos uma combinação de ferramentas e tecnologias que contribuíram para a construção eficiente e funcional da solução proposta. Cada ferramenta foi escolhida estrategicamente para atender aos requisitos técnicos e operacionais, garantindo qualidade e facilidade de manutenção.']
 const imagens = [
-    "images/componentesESuprimentos.png",
-    "images/esquemaConceitual.png",
-    "images/Logo01.png"];
+    "./images/componentesESuprimentos.png",
+    "./images/esquemaConceitual.png",
+    "./images/ferramentas.png"];
+
 function mudarImagem() {
-    if (indiceAtual < imagens.length-1){
-        indiceAtual+=1
-    }
-    else {
-        indiceAtual = 0
-    };
+    const imagem = document.getElementById("imagem")
+    const desc = document.getElementById("desc")
+
+    imagem.classList.remove("mostrar");
+    desc.classList.remove("mostrar");
+
+    setTimeout(() => {
+        indiceAtual = (indiceAtual + 1) % imagens.length;
+        imagem.src = imagens[indiceAtual];
+        desc.innerHTML = descs[indiceAtual];
+
+        imagem.classList.add("mostrar");
+        desc.classList.add("mostrar");
+    }, 300);
 
     document.getElementById("desc").innerHTML = descs[indiceAtual];
     document.getElementById("imagem").src = imagens[indiceAtual];
 }
-
-particlesJS("particles-js", {
-    particles: {
-      number: { value: 60, density: { enable: true, value_area: 800 } },
-      color: { value: "#fff" },
-      shape: {
-        type: "circle",
-        stroke: { width: 0, color: "#fff" },
-        polygon: { nb_sides: 5 },
-        image: { src: "img/github.svg", width: 100, height: 100 }
-      },
-      opacity: {
-        value: 0.5,
-        random: false,
-        anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-      },
-      size: {
-        value: 3,
-        random: true,
-        anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#fff",
-        opacity: 0.4,
-        width: 1
-      },
-      move: {
-        enable: true,
-        speed: 6,
-        direction: "none",
-        random: false,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-        attract: { enable: false, rotateX: 600, rotateY: 1200 }
-      }
-    },
-    retina_detect: true
-  });
-  var count_particles, stats, update;
-  stats = new Stats();
-  stats.setMode(0);
-  stats.domElement.style.position = "absolute";
-  stats.domElement.style.left = "0px";
-  stats.domElement.style.top = "0px";
-  document.body.appendChild(stats.domElement);
-  count_particles = document.querySelector(".js-count-particles");
-  update = function () {
-    stats.begin();
-    stats.end();
-    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-    }
-    requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-  
