@@ -133,6 +133,17 @@ section{
     height: 100vh;
     margin: 0px 40px;
 }
+.texto_sobre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1200px;
+    margin: 10px 40px;
+}
+.texto_sobre h1{
+    font-size: 35px;
+}
 .conteudo_sobre a{
     padding: 20px;
     color: #333;
@@ -183,14 +194,14 @@ section{
 }
 .botao{
     padding: 20px;
-    color: #333;
+    color: #ffffff;
     border-radius: 15px;
     font-size: 18px;
-    border: #333;
+    border: #ffffff;
     border-style: double;
     border-width: 5px;
     outline: 0;
-    background: none;
+    background: #333;
     cursor: pointer;
     font-weight: bold;
     transition: box-shadow 0.3s ease;
