@@ -1,6 +1,6 @@
 let indiceAtual = 0;
 const descs = [
-    '<h1>Componentes e<br>suprimentos</h1><br><br>1x Fonte de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro<br>1x Modulo de comunicação<br>2x Relé de estado solido<br>2x Resistores<br>1x Display LCD',
+    '<br>1x Arduino UNO<br>2x Potênciometros digitais (X9C103P)<br>2x TIP120 (transistor)<br>2x Resistores de 220 ohms<br>1x Regulador de tensão LM2596 (DC-DC)<br>1x Display LCD 16x2 com módulo I2C <br>2x Motores DC 24V <br>1x Fonte 220V - 24 V',
     '<h1>Esquema<br>conceitual</h1><br>&nbsp;&nbsp;&nbsp;&nbsp;A base do projeto está em um conjunto de sensores e atuadores conectados ao microcontrolador Arduino. Esses componentes monitoram variáveis importantes da máquina, como: comunicação e controle remoto, interface de usuário e alertas e notificações.',
     '<h1>Ferramentas<br>utilizadas</h1><br>&nbsp;&nbsp;&nbsp;&nbsp;Utilizamos uma combinação de ferramentas e tecnologias que contribuíram para a construção eficiente e funcional da solução proposta. Cada ferramenta foi escolhida estrategicamente para atender aos requisitos técnicos e operacionais, garantindo qualidade e facilidade de manutenção.']
 const imagens = [
