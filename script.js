@@ -30,7 +30,7 @@ function mudarImagem() {
 
 
 const descs2 = [
-    '<h1>Passo 01</h1><br>Separar os seguintes  componentes: <br>1x Fonte de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro<br>1x Modulo de comunicação<br>2x Relé de estado solido<br>2x Resistores<br>1x Display LCD',
+    '<br>1x Arduino UNO<br>2x Potênciometros digitais (X9C103P)<br>2x TIP120 (transistor)<br>2x Resistores de 220 ohms<br>1x Regulador de tensão LM2596 (DC-DC)<br>1x Display LCD 16x2 com módulo I2C <br>2x Motores DC 24V <br>1x Fonte 220V - 24 V',
     '<h1>Passo 02</h1><br>Conectar os jumpers seguindo a imagem ao lado.',
     '<h1>Passo 03</h1><br>Clicar na aba de codigo para inserir o codigo disponilizado no GitHub.',
     '<h1>Passo 04</h1><br>Clicar na aba de "Iniciar Simulação".'];
