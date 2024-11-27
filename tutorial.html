@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="./index.html"><img src="./images/Imagem01.png" alt="LOGO" height="150px"></a>
+        <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./projeto.html">Projeto</a></li>
+            <li><a href="./tutorial.html">Faça você mesmo</a></li>
+            <li><a href="./contato.html">Nosso time</a></li>
+        </ul>
+    </div>
+    <section id="sobre" class="section fade">
+        <div class="conteudo_sobre">
+            <div class="texto_sobre">
+                <h1>Tutorial</h1>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este projeto está disponível em nosso repositório no GitHub, onde você pode explorar o código completo, os esquemas de montagem e a documentação detalhada.
+                    Para quem deseja aprender e replicar o projeto, criamos também um vídeo tutorial no youtube.
+                    Além disso, disponibilizamos o download do projeto com todos os arquivos necessários para a execução. Sinta-se à vontade para explorar, modificar e contribuir com melhorias em nossa comunidade!          
+            </div>
+            </p>
+            <div class="conteudo_horizontal">
+                <div class="conteudo_vertical">
+                    <a href="./downloadProjeto.zip" download>Download do projeto</a>
+                    <a target="_blank" href="https://github.com/victorsimasdev/project-arduino">Repositório no GitHub</a>
+                </div>
+                <div class="video margem">
+                    <iframe width="401" height="271" src="https://www.youtube.com/embed/UP11lffg4Q8" title="Arduino" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="code-container">
+                    <pre>
+                        <code>
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;EEPROM.h&gt;
+
+#define INC_PIN 6  
+#define U_D_PIN 7  
+#define CS_PIN 8   
+#define MOTOR_PIN 10 
+
+LiquidCrystal_I2C lcd(0x27, 16, 2); 
+
+int potValue = 0;    
+int valueOLD = 0;    
+
+void setup() {
+    potValue = EEPROM.read(0);
+    valueOLD = potValue;
+
+    pinMode(INC_PIN, OUTPUT);
+    pinMode(U_D_PIN, OUTPUT);
+    pinMode(CS_PIN, OUTPUT);
+    pinMode(MOTOR_PIN, OUTPUT); 
+
+    digitalWrite(CS_PIN, HIGH);
+    digitalWrite(INC_PIN, HIGH);
+
+    lcd.init();
+    lcd.backlight();
+    lcd.setCursor(0, 0);
+    lcd.print("Potenciometro:");
+    lcd.setCursor(0, 1);
+    lcd.print("Valor: ");
+    lcd.print(potValue);
+
+    Serial.begin(9600);
+    Serial.println("Digite 'a' para aumentar, 'd' para diminuir, ou um valor entre 0 e 100.");
+
+
+    analogWrite(MOTOR_PIN, potValue);
+}
+
+void ajustarPotenciometro(int novoValor) {
+    int valueNEW = map(novoValor, 0, 100, 0, 255);
+
+    if (valueNEW > valueOLD) {
+    digitalWrite(U_D_PIN, HIGH);
+    } else if (valueNEW < valueOLD) {
+    digitalWrite(U_D_PIN, LOW);
+    }
+
+    for (int i = 0; i < abs(valueNEW - valueOLD); i++) {
+    digitalWrite(CS_PIN, LOW);
+    digitalWrite(INC_PIN, LOW);
+    delay(10);
+    digitalWrite(INC_PIN, HIGH);
+    delay(10);
+    digitalWrite(CS_PIN, HIGH);
+    }
+
+    valueOLD = valueNEW;
+    potValue = valueNEW;
+
+    EEPROM.write(0, potValue);
+
+    lcd.setCursor(0, 1);
+    lcd.print("Valor: ");
+    lcd.print("    "); 
+    lcd.setCursor(7, 1);
+    lcd.print(potValue);
+
+    Serial.print("Novo valor ajustado: ");
+    Serial.println(novoValor);
+
+    analogWrite(MOTOR_PIN, potValue);  
+}
+
+void loop() {
+    if (Serial.available() > 0) {
+    String input = Serial.readStringUntil('\n');
+    input.trim(); 
+
+    if (input == "a" && potValue < 255) {
+        ajustarPotenciometro(map(potValue + 1, 0, 255, 0, 100));
+        Serial.println("Aumentando");
+    } else if (input == "d" && potValue > 0) {
+        ajustarPotenciometro(map(potValue - 1, 0, 255, 0, 100));
+        Serial.println("Diminuindo");
+    } else {
+        int novoValor = input.toInt();
+        if (novoValor >= 0 && novoValor <= 100) {
+        ajustarPotenciometro(novoValor);
+        } else {
+        Serial.println("Entrada invalida! Digite 'a', 'd', ou um valor entre 0 e 100.");
+        }
+    }
+    }
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="conteudo_sobre">
+                <h1>Passo a Passo</h1>
+                <div class="conteudo_horizontala">
+                    <div id="desc2" class="conteudo mostrar">
+                        <h1>Passo 01</h1><br>Separar os seguintes componentes: <br>1x Fonde de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro<br>1x Modulo de comunicação<br>2x Relé de estado solido<br>2x Resistores<br>1x Display LCD
+                    </div>
+                    <img id="imagem2" class="mostrar imagem_passo" src="./images/imagens_passo_a_passo/imagem01.png" alt="Imagem">
+                </div>
+                <button class="botao" onclick="mudarImagem2()">Avançar</button>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

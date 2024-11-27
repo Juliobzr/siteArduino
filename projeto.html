@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Arduino</title>
+    <title>Projeto</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,15 +19,15 @@
             <li><a href="./contato.html">Nosso time</a></li>
         </ul>
     </div>
-    <section id="inicio" class="section active fade fade-in">
-        <div class="conteudo_inicio">
-            <div class="conteudo">
-                <h1>Dosador de lava-louças</h1>
-                <p>Nosso projeto revoluciona a manutenção de máquinas de lavar-louças, permitindo que seja feita remotamente com um dosador automatizado. A solução oferece monitoramento em tempo real, ajustes precisos e maior eficiência, reduzindo a necessidade de assistência técnica física.</p>
+    <section id="projeto" class="section fade">
+        <div class="conteudo_projeto">
+            <div class="conteudo_horizontal">
+                <div id="desc" class="conteudo mostrar">
+                    <h1>Componentes e<br>suprimentos</h1><br><br>1x Fonde de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro digital<br>1x Modulo de comunacação<br>2x LEDs vermelhas<br>2x Relé de estado solido<br>2x Resistores
+                </div>
+                <img id="imagem" class="mostrar" src="./images/componentesESuprimentos.png" alt="Imagem" height="400">
             </div>
-            <div class="imagem_inicio">
-                <img src="./images/imagem_inicio.png" alt="Imagem inicio" height="350px">
-            </div>
+            <button class="botao" onclick="mudarImagem()">Avançar</button>
         </div>
     </section>
     <script src="script.js"></script>
