@@ -1,6 +1,6 @@
 let indiceAtual = 0;
 const descs = [
-    '<h1>Componentes e<br>suprimentos</h1><br><br>1x Fonde de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro digital<br>1x Modulo de comunacação<br>2x LEDs vermelhas<br>2x Relé de estado solido<br>2x Resistores',
+    '<h1>Componentes e<br>suprimentos</h1><br><br>1x Fonte de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro<br>1x Modulo de comunicação<br>2x Relé de estado solido<br>2x Resistores<br>1x Display LCD',
     '<h1>Esquema<br>conceitual</h1><br>&nbsp;&nbsp;&nbsp;&nbsp;A base do projeto está em um conjunto de sensores e atuadores conectados ao microcontrolador Arduino. Esses componentes monitoram variáveis importantes da máquina, como: comunicação e controle remoto, interface de usuário e alertas e notificações.',
     '<h1>Ferramentas<br>utilizadas</h1><br>&nbsp;&nbsp;&nbsp;&nbsp;Utilizamos uma combinação de ferramentas e tecnologias que contribuíram para a construção eficiente e funcional da solução proposta. Cada ferramenta foi escolhida estrategicamente para atender aos requisitos técnicos e operacionais, garantindo qualidade e facilidade de manutenção.']
 const imagens = [
@@ -30,7 +30,7 @@ function mudarImagem() {
 
 
 const descs2 = [
-    '<h1>Passo 01</h1><br>Separar os seguintes  componentes: <br>1x Fonde de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro<br>1x Modulo de comunicação<br>2x Relé de estado solido<br>2x Resistores<br>1x Display LCD',
+    '<h1>Passo 01</h1><br>Separar os seguintes  componentes: <br>1x Fonte de alimentação 220V para 24V<br>1x Arduino UNO<br>2x Motor 24V<br>2x Potênciometro<br>1x Modulo de comunicação<br>2x Relé de estado solido<br>2x Resistores<br>1x Display LCD',
     '<h1>Passo 02</h1><br>Conectar os jumpers seguindo a imagem ao lado.',
     '<h1>Passo 03</h1><br>Clicar na aba de codigo para inserir o codigo disponilizado no GitHub.',
     '<h1>Passo 04</h1><br>Clicar na aba de "Iniciar Simulação".'];
